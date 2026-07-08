@@ -53,7 +53,7 @@ body {
 
 
 
-.Filtres {
+.filtres {
     display: flex;
     gap: 8px;
     background: rgba(30, 41, 59, 0.6);
