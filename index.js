@@ -14,7 +14,7 @@ function afficherExtensions(listeExtensions){
     grille.innerHTML = "";
 
     listeExtensions.forEach((extension, position) => {
-        grille.innerHTML += `
+        grille.innerHTML = grille.innerHTML + `
         <div class="carte">
             <div class="carte-haut">
                 <img src="${extension.logo}" alt="${extension.name}" class="carte-icone">
@@ -26,7 +26,7 @@ function afficherExtensions(listeExtensions){
 
             <div class="carte-bas">
                 <button 
-                    class="button-remove"
+                    class="bouton-remove"
                     onclick="supprimerExtension(${position})">
                     Remove
                 </button>
@@ -80,6 +80,23 @@ function marquerBoutonActif(idBouton){
     document.getElementById("inactive").classList.remove("actif");
     document.getElementById(idBouton).classList.add("actif");
 }
+
+//Changer de themr
+bouttonTheme = document.getElementById("theme");
+bouttonTheme.onclick = function(){
+    document.body.classList.toggle("clair");
+}
+
+//Changer icon
+icon = document.getElementById("icon");
+icon.addEventListener("click", function(){const actuel = icon.getAttribute("src");
+    if (actuel == "./images/icon-sun.svg") {
+        icon.setAttribute("src", "./images/icon-moon.svg");  
+    } else {
+        icon.setAttribute("src", "./images/icon-sun.svg");
+    }   });
+
+
 
 
               
