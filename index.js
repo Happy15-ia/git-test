@@ -49,10 +49,36 @@ function toggleExtension(position){
     }
     afficherExtensions(mesExtensions);
 }
-// Supprimer une extension
+//Supprimer une extension
 function supprimerExtension(position){
     mesExtensions.splice(position, 1);
     afficherExtensions(mesExtensions);
+}                   
+
+//Basculer entre les boutons
+
+document.getElementById("all").onclick = function(){
+    marquerBoutonActif("all");
+    afficherExtensions(mesExtensions);
+};
+
+document.getElementById("active").onclick = function(){
+    marquerBoutonActif("active");
+    const extensionsActives = mesExtensions.filter(extension => extension.isActive == true);
+    afficherExtensions(extensionsActives);
+};
+
+document.getElementById("inactive").onclick = function(){
+    marquerBoutonActif("inactive");
+    const extensionsInactives = mesExtensions.filter(extension => extension.isActive == false);
+    afficherExtensions(extensionsInactives);
+};
+
+function marquerBoutonActif(idBouton){
+    document.getElementById("all").classList.remove("actif");
+    document.getElementById("active").classList.remove("actif");
+    document.getElementById("inactive").classList.remove("actif");
+    document.getElementById(idBouton).classList.add("actif");
 }
 
 
